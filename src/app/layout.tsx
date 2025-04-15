@@ -1,9 +1,9 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: 'PeAPIniere',
+  title: 'PéAPInière - Votre Pépinière Digitale',
   description: 'Plant management app',
 };
 
@@ -13,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-100">{children}</body>
+    <html lang="fr">
+      <body className="bg-light">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

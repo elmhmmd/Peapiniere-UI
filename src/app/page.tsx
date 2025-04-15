@@ -1,8 +1,13 @@
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <h1 className="text-4xl">Welcome to PeAPIniere</h1>
-    </div>
+    <main>
+      <Hero />
+      <Services />
+      <Footer />
+    </main>
   );
 }
