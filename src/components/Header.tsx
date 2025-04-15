@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="fixed w-full bg-light py-4 px-[5%] flex justify-between items-center shadow-header z-[1000]">
       <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
-        <Image src="/logo.png" alt="PéAPInière Logo" width={24} height={24} />
+        <Image src="/logo.png" alt="PéAPInière Logo" width={24} height={24} priority />
         PéAPInière
       </Link>
       <div className="flex gap-4">
@@ -18,13 +18,13 @@ export default function Header() {
           <>
             <Link
               href="/admin/categories"
-              className="px-6 py-2 border border-primary text-primary rounded bg-transparent hover:bg-grey transition-colors"
+              className="px-6 py-2 border border-primary text-primary rounded bg-transparent hover:bg-grey transition-colors font-semibold"
             >
               Admin
             </Link>
             <button
               onClick={logout}
-              className="px-6 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors"
+              className="px-6 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors font-semibold"
             >
               Déconnexion
             </button>
@@ -33,13 +33,16 @@ export default function Header() {
           <>
             <Link
               href="/login"
-              className="px-6 py-2 border border-primary text-primary rounded bg-transparent hover:bg-grey transition-colors"
+              className="px-6 py-2 border border-primary text-primary rounded bg-transparent hover:bg-grey transition-colors font-semibold"
             >
               Se connecter
             </Link>
-            <button className="px-6 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors">
+            <Link
+              href="/signup"
+              className="px-6 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors font-semibold"
+            >
               S'inscrire
-            </button>
+            </Link>
           </>
         )}
       </div>

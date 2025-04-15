@@ -4,14 +4,15 @@ import { useState } from 'react';
 import { useAuthStore } from '@/stores/authStore';
 import Link from 'next/link';
 
-export default function LoginForm() {
+export default function SignUp() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, isLoading, error } = useAuthStore();
+  const { signup, isLoading, error } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(email, password);
+    await signup(name, email, password);
   };
 
   return (
@@ -21,9 +22,25 @@ export default function LoginForm() {
         className="w-full max-w-md bg-light p-8 rounded-lg shadow-header"
       >
         <h2 className="text-3xl font-bold text-primary-dark mb-6 text-center">
-          Se connecter
+          S'inscrire
         </h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-text font-semibold mb-2"
+          >
+            Nom
+          </label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-3 border border-grey-dark rounded bg-grey text-text focus:outline-none focus:border-primary"
+            required
+          />
+        </div>
         <div className="mb-4">
           <label
             htmlFor="email"
@@ -61,15 +78,15 @@ export default function LoginForm() {
           disabled={isLoading}
           className="w-full p-3 bg-primary text-white rounded hover:bg-primary-light transition-colors disabled:bg-grey-dark font-semibold"
         >
-          {isLoading ? 'Connexion...' : 'Se connecter'}
+          {isLoading ? 'Inscription...' : 'S\'inscrire'}
         </button>
         <p className="mt-4 text-center text-text">
-          Pas de compte ?{' '}
+          Déjà un compte ?{' '}
           <Link
-            href="/signup"
+            href="/login"
             className="text-primary hover:text-primary-light font-semibold"
           >
-            S'inscrire
+            Se connecter
           </Link>
         </p>
       </form>

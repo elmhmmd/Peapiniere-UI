@@ -1,0 +1,48 @@
+c:/Users/youco/peapiniere/
+├── .gitignore
+├─] .next/ (ignored)
+├── eslint.config.mjs
+├─] next-env.d.ts (ignored)
+├── next.config.ts
+├─] node_modules/ (ignored)
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public/
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── logo.png.png
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── README.md
+├── src/
+│   ├── app/
+│   │   ├── admin/
+│   │   │   └── categories/
+│   │   │       └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── plants/
+│   │       └── [slug]/
+│   │           └── page.tsx
+│   ├── components/
+│   │   ├── CategoryManager.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── LoginForm.tsx
+│   │   ├── PlantDetails.tsx
+│   │   └── Services.tsx
+│   ├── lib/
+│   │   ├── api.ts
+│   │   └── types.ts
+│   └── stores/
+│       ├── authStore.ts
+│       ├── categoryStore.ts
+│       └── plantStore.ts
+└── tsconfig.json

@@ -2,7 +2,6 @@ import { LoginResponse, Category, Plant, ErrorResponse } from './types';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
-
 async function fetchWithAuth(
   url: string,
   options: RequestInit = {},
@@ -20,6 +19,23 @@ async function fetchWithAuth(
   });
 }
 
+export async function signup(
+  name: string,
+  email: string,
+  password: string
+): Promise<LoginResponse> {
+  const response = await fetchWithAuth('/auth/register', {
+    method: 'POST',
+    body: JSON.stringify({ name, email, password }),
+  });
+
+  if (!response.ok) {
+    const error: ErrorResponse = await response.json();
+    throw new Error(error.message);
+  }
+
+  return response.json();
+}
 
 export async function login(email: string, password: string): Promise<LoginResponse> {
   const response = await fetchWithAuth('/auth/login', {
