@@ -1,8 +1,18 @@
+/* C:\Users\youco\peapiniere\src\app\globals.css */
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@theme {
+  --color-primary: #3A5F0B;
+  --color-primary-light: #5A8F1F;
+  --color-primary-dark: #2A4A00;
+  --color-accent: #8BC34A;
+  --color-text: #333333;
+  --color-light: #FFFFFF;
+  --color-grey: #F7F9F4;
+  --color-grey-dark: #E0E0E0;
+  --font-sans: "Segoe UI", "Tahoma", "Geneva", "Verdana", sans-serif;
+  --shadow-header: 0 2px 10px rgba(0,0,0,0.05);
+}
 
 @layer base {
   body {

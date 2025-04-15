@@ -1,9 +1,10 @@
 export default function Services() {
     return (
       <section className="py-20 px-[5%] bg-light">
-        <h2 className="text-center mb-12 text-3xl text-primary-dark relative after:content-[''] after:block after:w-16 after:h-1 after:bg-accent after:mx-auto after:mt-4">
-          Nos services
-        </h2>
+
+<h2 className="text-center mb-12 text-3xl text-primary-dark relative after:content-[''] after:block after:w-[60px] after:h-[3px] after:bg-accent after:mx-auto after:mt-4">
+  Nos services
+</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           <div className="bg-grey rounded-lg p-6 flex flex-col gap-4">
             <div className="text-4xl text-primary">🔐</div>
