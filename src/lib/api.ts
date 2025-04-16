@@ -2,16 +2,26 @@ import { LoginResponse, Category, Plant, ErrorResponse } from './types';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
+
+//+old versions
 async function fetchWithAuth(
   url: string,
   options: RequestInit = {},
   token?: string
 ): Promise<Response> {
-  const headers = {
+  const headers = new Headers({
     'Content-Type': 'application/json',
-    ...(token && { Authorization: `Bearer ${token}` }),
-    ...options.headers,
-  };
+    'Accept': 'application/json', 
+    ...(token && { 'Authorization': `Bearer ${token}` }),
+  });
+
+  if (options.headers) {
+    Object.entries(options.headers).forEach(([key, value]) => {
+      if (!headers.has(key)) {
+         headers.append(key, value);
+      }
+    });
+  }
 
   return fetch(`${API_BASE_URL}${url}`, {
     ...options,
@@ -19,19 +29,22 @@ async function fetchWithAuth(
   });
 }
 
-export async function signup(
+export async function signup (
   name: string,
   email: string,
-  password: string
+  password: string,
+  role: 'client' | 'employee' 
 ): Promise<LoginResponse> {
   const response = await fetchWithAuth('/auth/register', {
     method: 'POST',
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ name, email, password, role }),
   });
 
   if (!response.ok) {
-    const error: ErrorResponse = await response.json();
-    throw new Error(error.message);
+    const errorData = await response.json();
+    const message = errorData.message || `HTTP error! status: ${response.status}`;
+    console.error("Signup Error:", errorData);
+    throw new Error(message);
   }
 
   return response.json();
